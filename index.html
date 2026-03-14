@@ -3,168 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sai Durga is a trusted engineering service provider delivering reliable operation, maintenance, troubleshooting, and project execution services for power plants and solar installations across India.">
+    <meta name="description" content="Sai Durga is a trusted engineering service provider delivering reliable operation, maintenance, troubleshooting, and project execution services.">
     <title>Sai Durga - Engineering & Power Solutions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root{
-            --primary-color:#0056b3;
-            --primary-gradient:linear-gradient(135deg,#0056b3 0%,#0099ff 100%);
-            --secondary-color:#f8f9fa;
-            --text-color:#333;
-            --text-light:#666;
+        :root {
+            --primary-color: #004080; /* Deep Engineering Blue */
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff9900; /* Energy/Power Orange */
+            --text-color: #333;
+            --text-light: #666;
+            --transition: all 0.3s ease;
         }
 
-        body{
-            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-            margin:0;
-            padding:0;
-            color:var(--text-color);
-            line-height:1.6;
-            scroll-behavior:smooth;
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* NAVBAR */
-        nav{
-            background:white;
-            box-shadow:0 2px 10px rgba(0,0,0,0.1);
-            position:fixed;
-            width:100%;
-            top:0;
-            z-index:1000;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:15px 50px;
-            box-sizing:border-box;
+        /* --- NAVIGATION --- */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin: 0 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .login-btn {
+            background: var(--primary-color);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 4px;
+            margin-left: 15px;
+        }
+        .login-btn:hover {
+            background: var(--accent-color);
         }
 
-        .logo{
-            font-size:26px;
-            font-weight:800;
-            color:var(--primary-color);
+        /* --- GLOBAL SECTION STYLING --- */
+        section {
+            padding: 90px 20px;
+        }
+        .section-content {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .bg-light {
+            background: var(--secondary-color);
+        }
+        h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            display: block;
+            margin: 15px auto 0;
         }
 
-        .nav-links a{
-            text-decoration:none;
-            color:var(--text-color);
-            margin:0 15px;
-            font-weight:600;
-            transition:0.3s;
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Replace the URL below with your own image if desired */
+            background: linear-gradient(rgba(0, 32, 96, 0.8), rgba(0, 32, 96, 0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646f70c22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 200px 20px 150px;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            margin: 10px;
+        }
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #e68a00;
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
         }
 
-        .nav-links a:hover{
-            color:var(--primary-color);
+        /* --- GRIDS & CARDS --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent-color);
+        }
+        .card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3em;
         }
 
-        .login-btn{
-            background:var(--primary-gradient);
-            color:white!important;
-            padding:10px 24px;
-            border-radius:50px;
+        /* Lists */
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .check-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--accent-color);
         }
 
-        /* SECTIONS */
-        section{
-            padding:100px 50px;
-            max-width:1200px;
-            margin:auto;
+        /* --- FOOTER (Smaller & Compact) --- */
+        footer {
+            background: #111;
+            color: #ddd;
+            padding: 50px 20px 20px;
+            font-size: 0.9em;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+            margin-bottom: 20px;
+        }
+        footer h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #777;
         }
 
-        .bg-light{
-            background:var(--secondary-color);
-            max-width:100%;
-        }
-
-        .section-content{
-            max-width:1200px;
-            margin:auto;
-        }
-
-        /* HERO */
-        .hero{
-            text-align:center;
-            padding:180px 20px 120px 20px;
-            background:var(--primary-gradient);
-            color:white;
-            max-width:100%;
-        }
-
-        .hero h1{
-            font-size:3.5em;
-            margin-bottom:20px;
-        }
-
-        .hero p{
-            font-size:1.2em;
-            max-width:850px;
-            margin:auto;
-            opacity:0.95;
-        }
-
-        /* HEADINGS */
-        h2{
-            font-size:2.2em;
-            color:var(--primary-color);
-            margin-bottom:40px;
-            text-align:center;
-        }
-
-        /* GRID */
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-            gap:30px;
-        }
-
-        .card{
-            background:white;
-            padding:30px;
-            border-radius:12px;
-            box-shadow:0 8px 20px rgba(0,0,0,0.05);
-            transition:0.3s;
-            border:1px solid #eee;
-        }
-
-        .card:hover{
-            transform:translateY(-8px);
-            box-shadow:0 12px 25px rgba(0,0,0,0.1);
-        }
-
-        .card h3{
-            color:var(--primary-color);
-            margin-top:0;
-        }
-
-        .card-list{
-            list-style:none;
-            padding:0;
-        }
-
-        .card-list li.card{
-            display:flex;
-            align-items:center;
-            font-weight:500;
-        }
-
-        /* FOOTER */
-        footer{
-            background:#1a1a1a;
-            color:white;
-            text-align:center;
-            padding:40px 20px;
-        }
-
-        footer p{
-            color:#aaa;
-            margin:10px 0;
-        }
-
-        footer h3{
-            color:white;
-        }
-
-        /* MOBILE RESPONSIVENESS (Added for phones) */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -172,166 +243,213 @@
             }
             .nav-links {
                 margin-top: 15px;
-                display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
-            }
-            .nav-links a {
-                margin: 0;
-                font-size: 14px;
             }
             .hero {
-                padding-top: 160px;
-            }
-            section {
-                padding: 60px 20px;
+                padding: 160px 20px 100px;
             }
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
-
 <body>
 
     <nav>
         <div class="logo">Sai Durga</div>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About Us</a>
+            <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#clients">Clients</a>
             <a href="#projects">Projects</a>
             <a href="login.html" class="login-btn">ERP Login</a>
+        </div>
     </nav>
 
     <section id="home" class="hero">
-        <h1>Engineering Services for Power Plants & Renewable Energy</h1>
-        <p>
-            Sai Durga is a trusted engineering service provider delivering reliable operation,
-            maintenance, troubleshooting and project execution services for power plants,
-            solar plants and electrical infrastructure across India.
-        </p>
-        <p>
-            Our CEO Mr.Imran khan consists of experienced engineers and technicians with
-            <strong>more than 15+ years of experience in power plant operation,
-            electrical maintenance, project execution and troubleshooting.</strong>
-        </p>
+        <h1>Reliable Electrical & Renewable Energy Engineering Services</h1>
+        <p>Supporting Power Plants, Solar Projects & Industrial Electrical Systems with Professional Testing, Maintenance and Troubleshooting.</p>
+        <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">Our Services</a>
+            <a href="#footer" class="btn btn-outline">Contact Us</a>
+        </div>
     </section>
 
     <section id="about">
         <div class="section-content">
-            <h2>About Sai Durga</h2>
-            <p style="text-align:center;font-size:1.1em;color:var(--text-light);max-width:900px;margin:auto;">
-                Sai Durga is an engineering service company specializing in electrical,
-                power plant and renewable energy solutions. Our technical team has strong
-                experience in operation, maintenance, troubleshooting and project execution
-                of power plants and solar installations.
-            </p>
-            <p style="text-align:center;font-size:1.1em;color:var(--text-light);max-width:900px;margin:20px auto;">
-                We have successfully supported leading energy companies by delivering high-quality
-                services in transformer maintenance, switchgear testing, solar plant diagnosis,
-                electrical system maintenance and industrial troubleshooting.
+            <h2>Our Expertise</h2>
+            <p style="text-align:center;font-size:1.1em;color:var(--text-light);max-width:900px;margin:auto;margin-bottom:40px;">
+                Sai Durga is an engineering service company specializing in electrical, power plant, and renewable energy solutions. We have successfully supported leading energy companies by delivering high-quality services.
             </p>
             <div class="grid">
                 <div class="card">
-                    <h3>Experienced Technical Team</h3>
-                    <p>Our engineers and technicians have strong technical background with more than 15+ years of hands-on experience in operation, execution and troubleshooting of power plants, electrical equipment and solar installations.</p>
+                    <i class="fa-solid fa-industry"></i>
+                    <h3>Power Plant Operation Support</h3>
+                    <p>Expert support ensuring continuous, efficient operations and minimized downtime for large-scale power generation facilities.</p>
                 </div>
                 <div class="card">
-                    <h3>Safety</h3>
-                    <p>We prioritize the health, safety and welfare of employees and maintain strict EHS standards while executing work at project sites.</p>
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Transformer Testing & Maintenance</h3>
+                    <p>Comprehensive oil filtration, routine maintenance, and condition monitoring for transformers of all sizes.</p>
                 </div>
                 <div class="card">
-                    <h3>Reliability</h3>
-                    <p>We focus on delivering reliable services with high quality workmanship, ensuring efficient plant operation and long-term equipment performance.</p>
+                    <i class="fa-solid fa-solar-panel"></i>
+                    <h3>Solar Plant Troubleshooting</h3>
+                    <p>Advanced diagnostics, performance analysis, and complete AC & DC execution works for renewable energy sites.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-plug"></i>
+                    <h3>Switchgear & Relays</h3>
+                    <p>Testing, commissioning, and maintenance of switchgear and protective relays up to 33kV distribution systems.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="bg-light">
+    <section class="bg-light">
+        <div class="section-content">
+            <h2>Why Choose Sai Durga</h2>
+            <div class="grid">
+                <div class="card">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>15+ Years Technical Experience</h3>
+                    <p>Our team consists of highly skilled engineers and technicians with over 15+ years of industry experience in power plant operations and electrical systems.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-building-shield"></i>
+                    <h3>Specialized Power Plant Expertise</h3>
+                    <p>Hands-on experience in operation, maintenance, troubleshooting, and testing of power plant equipment to reduce downtime.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>End-to-End Electrical Solutions</h3>
+                    <p>From transformer testing and switchgear maintenance to solar diagnostics, we provide complete engineering solutions.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-hard-hat"></i>
+                    <h3>Safety & Quality Focus</h3>
+                    <p>All our services follow strict industry safety standards, electrical codes, and quality procedures for safe operations.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h3>Trusted by Energy Companies</h3>
+                    <p>We have successfully supported leading power and renewable energy companies by delivering dependable maintenance.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <h3>Fast Problem Resolution</h3>
+                    <p>Our strong troubleshooting expertise helps identify electrical faults quickly, minimizing downtime and improving reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
         <div class="section-content">
             <h2>Our Engineering Services</h2>
-            <ul class="grid card-list">
-                <li class="card">Transformer oil filtration, troubleshooting and condition monitoring</li>
-                <li class="card">Danish make IDT LV bushing replacement and transformer maintenance</li>
-                <li class="card">Solar plant diagnosis, AC & DC works and performance analysis</li>
-                <li class="card">Execution of electrical distribution systems up to 33kV</li>
-                <li class="card">Relay testing, switchgear testing and electrical fault analysis</li>
-                <li class="card">Industrial electrical works, lightning protection and wiring systems</li>
-                <li class="card">Diesel generator maintenance and auxiliary system servicing</li>
+            <ul class="grid check-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                <li><i class="fa-solid fa-check-circle"></i> Transformer oil filtration, troubleshooting and condition monitoring</li>
+                <li><i class="fa-solid fa-check-circle"></i> Danish make IDT LV bushing replacement and transformer maintenance</li>
+                <li><i class="fa-solid fa-check-circle"></i> Solar plant diagnosis, AC & DC works and performance analysis</li>
+                <li><i class="fa-solid fa-check-circle"></i> Execution of electrical distribution systems up to 33kV</li>
+                <li><i class="fa-solid fa-check-circle"></i> Relay testing, switchgear testing and electrical fault analysis</li>
+                <li><i class="fa-solid fa-check-circle"></i> Industrial electrical works, lightning protection and wiring systems</li>
+                <li><i class="fa-solid fa-check-circle"></i> Diesel generator maintenance and auxiliary system servicing</li>
             </ul>
         </div>
     </section>
 
-    <section class="bg-light" style="padding-top: 0;">
+    <section class="bg-light">
         <div class="section-content">
-            <h2>Our Strength</h2>
-            <div class="grid">
+            <h2>Industries We Serve</h2>
+            <div class="grid" style="text-align: center;">
                 <div class="card">
-                    <h3>15+ Years Experience</h3>
-                    <p>Strong technical expertise in power plant operation, execution and electrical maintenance.</p>
+                    <i class="fa-solid fa-tower-observation"></i>
+                    <h3>Power Generation</h3>
                 </div>
                 <div class="card">
-                    <h3>100+ Projects Supported</h3>
-                    <p>Successfully executed multiple maintenance, testing and engineering service projects.</p>
+                    <i class="fa-solid fa-sun"></i>
+                    <h3>Renewable Energy (Solar)</h3>
                 </div>
                 <div class="card">
-                    <h3>Major Industry Clients</h3>
-                    <p>Trusted engineering service partner for leading energy companies across India.</p>
+                    <i class="fa-solid fa-industry"></i>
+                    <h3>Industrial Manufacturing</h3>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Electrical Utilities</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="clients">
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects & Achievements</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fa-solid fa-gears" style="font-size:24px; margin-right:10px;"></i> Core Project Experience</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>Transformer testing at multiple thermal power plants.</li>
+                        <li>Oil filtration works at large power stations.</li>
+                        <li>Relay testing and electrical maintenance at industrial facilities.</li>
+                        <li>Solar power plant troubleshooting and diagnostics.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-file-signature" style="font-size:24px; margin-right:10px;"></i> Notable Executions</h3>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>370 MVA Transformer:</strong> Oil filtration at 2x300 MW Thermal Power Plant, Nagpur.</li>
+                        <li><strong>BHEL Testing:</strong> 33kV Switchgear, Circuit Breaker, and Relay testing.</li>
+                        <li><strong>Adani Green Energy:</strong> Civil works and AMC Services for generators across sites.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
         <div class="section-content">
             <h2>Major Clients</h2>
-            <div class="grid">
-                <div class="card" style="text-align:center;font-weight:bold;">Adani Green Energy Ltd</div>
-                <div class="card" style="text-align:center;font-weight:bold;">JSW Energies</div>
-                <div class="card" style="text-align:center;font-weight:bold;">BHEL (Singareni Collieries)</div>
-                <div class="card" style="text-align:center;font-weight:bold;">CleanMax Enviro Energy Solutions</div>
-                <div class="card" style="text-align:center;font-weight:bold;">Mytrah Abhinav Power Pvt Ltd</div>
-                <div class="card" style="text-align:center;font-weight:bold;">Ilios Power Private Limited</div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); text-align: center;">
+                <div class="card" style="padding: 20px;"><strong>Adani Green Energy Ltd</strong></div>
+                <div class="card" style="padding: 20px;"><strong>JSW Energies</strong></div>
+                <div class="card" style="padding: 20px;"><strong>BHEL</strong></div>
+                <div class="card" style="padding: 20px;"><strong>CleanMax Enviro</strong></div>
+                <div class="card" style="padding: 20px;"><strong>Mytrah Abhinav</strong></div>
+                <div class="card" style="padding: 20px;"><strong>Ilios Power</strong></div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="bg-light">
-        <div class="section-content">
-            <h2>Major Projects Handled</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>370 MVA Transformer Oil Filtration</h3>
-                    <p>Generator Transformer oil filtration work at 2x300 MW Thermal Power Plant, Butibori Thermal Power Plant, Nagpur, Maharashtra.</p>
-                </div>
-                <div class="card">
-                    <h3>Electrical Testing & Maintenance</h3>
-                    <p>33kV Switchgear, Circuit Breaker, Relay and Transformer routine maintenance and testing works at BHEL project sites.</p>
-                </div>
-                <div class="card">
-                    <h3>Civil Infrastructure Works</h3>
-                    <p>Road construction work executed for Adani Green Energy (UP) Ltd at renewable energy project site in Karnataka.</p>
-                </div>
-                <div class="card">
-                    <h3>AMC Services</h3>
-                    <p>Annual maintenance contract for Diesel Generators, Petrol Generators and Air Conditioners at Adani project sites in Karnataka.</p>
-                </div>
+    <footer id="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>Sai Durga</h3>
+                <p>Delivering exceptional engineering and testing services for power plants and solar installations across India.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+            </div>
+            <div>
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 9-71, R K Provision, Near Grama Panchayat, Kothapeta, Chirala, AP - 523155</p>
+                <p><i class="fa-solid fa-envelope"></i> Saidurgapvt@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</p>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <h3>Contact Sai Durga</h3>
-        <p><strong>Address:</strong> 9-71, R K Provision, Near Grama Panchayat, Kothapeta, Chirala, Andhra Pradesh - 523155</p>
-        <p><strong>Email:</strong> Saidurgapvt@gmail.com</p>
-        <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-        <br>
-        <p>&copy; 2026 Sai Durga. All Rights Reserved.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sai Durga Engineering Services. All Rights Reserved.</p>
+        </div>
     </footer>
 
 </body>
