@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Login - Sai Durga</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-gradient: linear-gradient(135deg, #0056b3 0%, #0099ff 100%);
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .input-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        .login-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 86, 179, 0.3);
+        }
+        .back-link {
+            display: block;
+            margin-top: 25px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        #error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <div class="logo">Sai Durga</div>
+        <div class="subtitle">Secure Employee ERP Portal</div>
+        
+        <form id="erpLoginForm">
+            <div class="input-group">
+                <label for="username">Employee ID / Username</label>
+                <input type="text" id="username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <button type="submit" class="login-btn" id="submitBtn">Access ERP</button>
+            <div id="error-message">Invalid Username or Password.</div>
+        </form>
+
+        <a href="index.html" class="back-link">&larr; Back to Main Website</a>
+    </div>
+
+    <script>
+        document.getElementById('erpLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stops the page from refreshing
+            
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            var btn = document.getElementById('submitBtn');
+            var errorMsg = document.getElementById('error-message');
+            
+            // Visual feedback
+            btn.innerText = "Verifying...";
+            errorMsg.style.display = "none";
+
+            // THIS IS WHERE YOU CONNECT TO YOUR GOOGLE SCRIPT
+            // For now, this is a placeholder check to show you how it works
+            if (user === "admin" && pass === "12345") {
+                // If password is correct, send them to the Google Script URL
+                window.location.href = "https://script.google.com/macros/s/AKfycbzP4hc7Q3YBI2YdfCW-kNKbguoRepu7H9dDNpHNVbUJ7itWpNb70M1nTrHGdZCD62ri/exec";
+            } else {
+                // If password is wrong
+                btn.innerText = "Access ERP";
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
