@@ -1,262 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Durga - Engineering & Solar Solutions</title>
-    <style>
-        /* Modern CSS & UI Styling */
-        :root {
-            --primary-color: #0056b3;
-            --primary-gradient: linear-gradient(135deg, #0056b3 0%, #0099ff 100%);
-            --secondary-color: #f8f9fa;
-            --text-color: #333;
-            --text-light: #666;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        
-        /* Navigation Bar */
-        nav {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            box-sizing: border-box;
-        }
-        .logo {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: 1px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        .login-btn {
-            background: var(--primary-gradient);
-            color: white !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Durga - Engineering & Power Solutions</title>
 
-        /* Page Sections */
-        section {
-            padding: 100px 50px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .bg-light {
-            background-color: var(--secondary-color);
-            max-width: 100%;
-        }
-        .section-content {
-            max-width: 1200px;
-            margin: auto;
-        }
+<style>
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 180px 20px 120px 20px;
-            background: var(--primary-gradient);
-            color: white;
-            max-width: 100%;
-        }
-        .hero h1 { 
-            font-size: 3.5em; 
-            margin-bottom: 20px;
-            margin-top: 0;
-        }
-        .hero p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: auto;
-            opacity: 0.9;
-        }
+:root{
+--primary-color:#0056b3;
+--primary-gradient:linear-gradient(135deg,#0056b3 0%,#0099ff 100%);
+--secondary-color:#f8f9fa;
+--text-color:#333;
+--text-light:#666;
+}
 
-        /* Headings */
-        h2 { 
-            font-size: 2.2em; 
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        /* Grids and Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-        }
-        .card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        .card-list {
-            list-style: none;
-            padding: 0;
-        }
-        .card-list li.card {
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-        }
+body{
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+margin:0;
+padding:0;
+color:var(--text-color);
+line-height:1.6;
+scroll-behavior:smooth;
+}
 
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 0;
-        }
-        footer p {
-            color: #aaa;
-            margin: 10px 0;
-        }
-        footer h3 {
-            color: white;
-        }
-    </style>
+/* NAVBAR */
+
+nav{
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 50px;
+box-sizing:border-box;
+}
+
+.logo{
+font-size:26px;
+font-weight:800;
+color:var(--primary-color);
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--text-color);
+margin:0 15px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--primary-color);
+}
+
+.login-btn{
+background:var(--primary-gradient);
+color:white!important;
+padding:10px 24px;
+border-radius:50px;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 50px;
+max-width:1200px;
+margin:auto;
+}
+
+.bg-light{
+background:var(--secondary-color);
+max-width:100%;
+}
+
+.section-content{
+max-width:1200px;
+margin:auto;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:180px 20px 120px 20px;
+background:var(--primary-gradient);
+color:white;
+max-width:100%;
+}
+
+.hero h1{
+font-size:3.5em;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2em;
+max-width:850px;
+margin:auto;
+opacity:0.95;
+}
+
+/* HEADINGS */
+
+h2{
+font-size:2.2em;
+color:var(--primary-color);
+margin-bottom:40px;
+text-align:center;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+transition:0.3s;
+border:1px solid #eee;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 25px rgba(0,0,0,0.1);
+}
+
+.card h3{
+color:var(--primary-color);
+margin-top:0;
+}
+
+.card-list{
+list-style:none;
+padding:0;
+}
+
+.card-list li.card{
+display:flex;
+align-items:center;
+font-weight:500;
+}
+
+/* FOOTER */
+
+footer{
+background:#1a1a1a;
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+footer p{
+color:#aaa;
+margin:10px 0;
+}
+
+footer h3{
+color:white;
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">Sai Durga</div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#clients">Clients</a>
-            <a href="#projects">Major Projects</a>
-            <a href="https://script.google.com/macros/s/AKfycbzP4hc7Q3YBI2YdfCW-kNKbguoRepu7H9dDNpHNVbUJ7itWpNb70M1nTrHGdZCD62ri/exec" class="login-btn">ERP Login</a>
-        </div>
-    </nav>
+<nav>
+<div class="logo">Sai Durga</div>
 
-    <section id="home" class="hero">
-        <h1>Welcome to Sai Durga</h1>
-        <p>Delivering exceptional service that exceeds expectations, upholding the highest standards of quality in engineering and solar solutions.</p>
-    </section>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#services">Services</a>
+<a href="#clients">Clients</a>
+<a href="#projects">Major Projects</a>
 
-    <section id="about">
-        <div class="section-content">
-            <h2>About Us & Our Values</h2>
-            <p style="text-align: center; font-size: 1.1em; color: var(--text-light); max-width: 800px; margin: 0 auto 40px auto;">At SAIDURGA, integrity is at the heart of everything we do. We prioritize the health, safety, and welfare of our employees and all individuals affected by our operations.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Safety</h3>
-                    <p>We prioritize the well-being of people and maintain rigorous safety standards across all sites.</p>
-                </div>
-                <div class="card">
-                    <h3>Reliability</h3>
-                    <p>We are committed to maintaining integrity, consistency, and excellence in all our actions.</p>
-                </div>
-                <div class="card">
-                    <h3>Responsiveness</h3>
-                    <p>We listen carefully to our clients, adapt to their needs, and act accordingly with precision.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<a href="https://script.google.com/macros/s/AKfycbzP4hc7Q3YBI2YdfCW-kNKbguoRepu7H9dDNpHNVbUJ7itWpNb70M1nTrHGdZCD62ri/exec" class="login-btn">ERP Login</a>
+</div>
+</nav>
 
-    <section id="services" class="bg-light">
-        <div class="section-content">
-            <h2>Key Services</h2>
-            <ul class="grid card-list">
-                <li class="card">Solar project execution of AC and DC works</li>
-                <li class="card">Execution of power distribution systems up to 33kV</li>
-                <li class="card">Specialist for solar plant diagnosis and performance analysis</li>
-                <li class="card">Transformer oil filtration, troubleshooting, and fault analysis</li>
-                <li class="card">Industrial wiring and lightning systems</li>
-                <li class="card">Diesel generators maintenance</li>
-            </ul>
-        </div>
-    </section>
 
-    <section id="clients">
-        <div class="section-content">
-            <h2>Major Clients</h2>
-            <div class="grid">
-                <div class="card" style="text-align: center; font-weight: bold;">Adani Green Energy Ltd</div>
-                <div class="card" style="text-align: center; font-weight: bold;">JSW Energies</div>
-                <div class="card" style="text-align: center; font-weight: bold;">BHEL (Singareni Collieries)</div>
-                <div class="card" style="text-align: center; font-weight: bold;">CleanMax Enviro Energy Solutions</div>
-                <div class="card" style="text-align: center; font-weight: bold;">Mytrah Abhinav Power Pvt Ltd</div>
-                <div class="card" style="text-align: center; font-weight: bold;">Ilios Power Private Limited</div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
 
-    <section id="projects" class="bg-light">
-        <div class="section-content">
-            <h2>Major Projects Handled</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Thermal Power Plant</h3>
-                    <p>370 MVA Generator Transformer Oil Filtration at 2x300 MW Butibori Thermal Power Plant, Nagpur, Maharashtra.</p>
-                </div>
-                <div class="card">
-                    <h3>Maintenance & Testing</h3>
-                    <p>33kV Switchgear, Circuit Breaker, Relay, Transformer Routine Maintenance & Testing at BHEL.</p>
-                </div>
-                <div class="card">
-                    <h3>Civil Works</h3>
-                    <p>Road Construction Work at Adani Green Energy (UP) Ltd, Karnataka.</p>
-                </div>
-                <div class="card">
-                    <h3>AMC Services</h3>
-                    <p>AMC Service for Diesel Generators, Petrol Generators & Air Conditioners at Adani sites, Karnataka.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="home" class="hero">
 
-    <footer>
-        <h3>Contact Sai Durga</h3>
-        <p><strong>Address:</strong> 9-71, R K Provision, Near Grama Panchayat, Kothapeta, Chirala, Andhra Pradesh-523155</p>
-        <p><strong>Email:</strong> Saidurgapvt@gmail.com</p>
-        <br>
-        <p>&copy; 2026 Sai Durga. All Rights Reserved.</p>
-    </footer>
+<h1>Engineering Services for Power Plants & Renewable Energy</h1>
+
+<p>
+Sai Durga is a trusted engineering service provider delivering reliable operation,
+maintenance, troubleshooting and project execution services for power plants,
+solar plants and electrical infrastructure across India.
+</p>
+
+<p>
+Our technical team consists of experienced engineers and technicians with
+<strong>more than 15+ years of experience in power plant operation,
+electrical maintenance, project execution and troubleshooting.</strong>
+</p>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-content">
+
+<h2>About Sai Durga</h2>
+
+<p style="text-align:center;font-size:1.1em;color:var(--text-light);max-width:900px;margin:auto;">
+Sai Durga is an engineering service company specializing in electrical,
+power plant and renewable energy solutions. Our technical team has strong
+experience in operation, maintenance, troubleshooting and project execution
+of power plants and solar installations.
+</p>
+
+<p style="text-align:center;font-size:1.1em;color:var(--text-light);max-width:900px;margin:20px auto;">
+We have successfully supported leading energy companies by delivering high-quality
+services in transformer maintenance, switchgear testing, solar plant diagnosis,
+electrical system maintenance and industrial troubleshooting.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Experienced Technical Team</h3>
+<p>
+Our engineers and technicians have strong technical background with more than
+15+ years of hands-on experience in operation, execution and troubleshooting
+of power plants, electrical equipment and solar installations.
+</p>
+</div>
+
+<div class="card">
+<h3>Safety</h3>
+<p>
+We prioritize the health, safety and welfare of employees and maintain strict
+EHS standards while executing work at project sites.
+</p>
+</div>
+
+<div class="card">
+<h3>Reliability</h3>
+<p>
+We focus on delivering reliable services with high quality workmanship,
+ensuring efficient plant operation and long-term equipment performance.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SERVICES -->
+
+<section id="services" class="bg-light">
+
+<div class="section-content">
+
+<h2>Our Engineering Services</h2>
+
+<ul class="grid card-list">
+
+<li class="card">
+Transformer oil filtration, troubleshooting and condition monitoring
+</li>
+
+<li class="card">
+Danish make IDT LV bushing replacement and transformer maintenance
+</li>
+
+<li class="card">
+Solar plant diagnosis, AC & DC works and performance analysis
+</li>
+
+<li class="card">
+Execution of electrical distribution systems up to 33kV
+</li>
+
+<li class="card">
+Relay testing, switchgear testing and electrical fault analysis
+</li>
+
+<li class="card">
+Industrial electrical works, lightning protection and wiring systems
+</li>
+
+<li class="card">
+Diesel generator maintenance and auxiliary system servicing
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<!-- COMPANY STRENGTH -->
+
+<section class="bg-light">
+
+<div class="section-content">
+
+<h2>Our Strength</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>15+ Years Experience</h3>
+<p>Strong technical expertise in power plant operation, execution and electrical maintenance.</p>
+</div>
+
+<div class="card">
+<h3>100+ Projects Supported</h3>
+<p>Successfully executed multiple maintenance, testing and engineering service projects.</p>
+</div>
+
+<div class="card">
+<h3>Major Industry Clients</h3>
+<p>Trusted engineering service partner for leading energy companies across India.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CLIENTS -->
+
+<section id="clients">
+
+<div class="section-content">
+
+<h2>Major Clients</h2>
+
+<div class="grid">
+
+<div class="card" style="text-align:center;font-weight:bold;">Adani Green Energy Ltd</div>
+
+<div class="card" style="text-align:center;font-weight:bold;">JSW Energies</div>
+
+<div class="card" style="text-align:center;font-weight:bold;">BHEL (Singareni Collieries)</div>
+
+<div class="card" style="text-align:center;font-weight:bold;">CleanMax Enviro Energy Solutions</div>
+
+<div class="card" style="text-align:center;font-weight:bold;">Mytrah Abhinav Power Pvt Ltd</div>
+
+<div class="card" style="text-align:center;font-weight:bold;">Ilios Power Private Limited</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="bg-light">
+
+<div class="section-content">
+
+<h2>Major Projects Handled</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>370 MVA Transformer Oil Filtration</h3>
+<p>
+Generator Transformer oil filtration work at 2x300 MW Thermal Power Plant,
+Butibori Thermal Power Plant, Nagpur, Maharashtra.
+</p>
+</div>
+
+<div class="card">
+<h3>Electrical Testing & Maintenance</h3>
+<p>
+33kV Switchgear, Circuit Breaker, Relay and Transformer routine
+maintenance and testing works at BHEL project sites.
+</p>
+</div>
+
+<div class="card">
+<h3>Civil Infrastructure Works</h3>
+<p>
+Road construction work executed for Adani Green Energy (UP) Ltd
+at renewable energy project site in Karnataka.
+</p>
+</div>
+
+<div class="card">
+<h3>AMC Services</h3>
+<p>
+Annual maintenance contract for Diesel Generators, Petrol Generators
+and Air Conditioners at Adani project sites in Karnataka.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>Contact Sai Durga</h3>
+
+<p><strong>Address:</strong> 9-71, R K Provision, Near Grama Panchayat, Kothapeta, Chirala, Andhra Pradesh - 523155</p>
+
+<p><strong>Email:</strong> Saidurgapvt@gmail.com</p>
+
+<p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+
+<br>
+
+<p>&copy; 2026 Sai Durga. All Rights Reserved.</p>
+
+</footer>
 
 </body>
 </html>
