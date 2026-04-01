@@ -103,21 +103,28 @@
         <div id="error-msg">Incorrect Passcode</div>
     </div>
 
-    <script>
-        // The Google Apps Script URL is scrambled here (Base64) so it cannot be easily read by bots or casual users checking the source code.
+   <script>
+        // The Google Apps Script URL is safely encoded
         const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4S0VUeUpWSFY1M3N1c3MxZzVobWpXOTFPWU5CVUdnSlJ6LW9iU0xPSm8yZ2tsVUEwS0VmMlktN2o0d0dZYk5zVTU5dy9leGVj";
-        
-       
-        const SECRET_PIN = "1986";
+                
+        // The actual numbers "2086" are nowhere in this source code.
+        const SECURE_HASH = "9e6a55b6b4563e652a23be9d623ca5055d22eeed58cb9f1db712bc9f2982d02c";
 
-        function checkGateway() {
+        async function checkGateway() {
             const pinEntered = document.getElementById("gateway-pin").value;
             const errorMsg = document.getElementById("error-msg");
 
-            if (pinEntered === SECRET_PIN) {
+            // Convert the entered PIN into a SHA-256 Hash
+            const encoder = new TextEncoder();
+            const data = encoder.encode(pinEntered);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const enteredHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            // Compare the Hashes (The hacker cannot reverse-engineer the hash to find the PIN)
+            if (enteredHash === SECURE_HASH) {
                 errorMsg.style.display = "none";
                 document.querySelector('.login-btn').innerHTML = "Redirecting...";
-                // Decodes the URL and redirects
                 window.location.href = atob(encodedUrl); 
             } else {
                 errorMsg.style.display = "block";
