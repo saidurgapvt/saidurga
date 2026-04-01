@@ -104,35 +104,41 @@
     </div>
 
    <script>
-        // The Google Apps Script URL is safely encoded
         const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4S0VUeUpWSFY1M3N1c3MxZzVobWpXOTFPWU5CVUdnSlJ6LW9iU0xPSm8yZ2tsVUEwS0VmMlktN2o0d0dZYk5zVTU5dy9leGVj";
-                
-        // The actual numbers "2086" are nowhere in this source code.
-        const SECURE_HASH = "9e6a55b6b4563e652a23be9d623ca5055d22eeed58cb9f1db712bc9f2982d02c";
+        
+        // We will update this with your REAL hash in Step 2!
+        const SECURE_HASH = "REPLACE_ME_LATER";
 
         async function checkGateway() {
-            const pinEntered = document.getElementById("gateway-pin").value;
+            // .trim() ensures accidental spaces don't break the PIN
+            const pinEntered = document.getElementById("gateway-pin").value.trim(); 
             const errorMsg = document.getElementById("error-msg");
 
-            // Convert the entered PIN into a SHA-256 Hash
-            const encoder = new TextEncoder();
-            const data = encoder.encode(pinEntered);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const enteredHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            try {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(pinEntered);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const enteredHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-            // Compare the Hashes (The hacker cannot reverse-engineer the hash to find the PIN)
-            if (enteredHash === SECURE_HASH) {
-                errorMsg.style.display = "none";
-                document.querySelector('.login-btn').innerHTML = "Redirecting...";
-                window.location.href = atob(encodedUrl); 
-            } else {
+                // 🚀 THIS IS THE MAGIC LINE: It prints the real hash to your console!
+                console.log("The true hash for your PIN is: " + enteredHash);
+
+                if (enteredHash === SECURE_HASH) {
+                    errorMsg.style.display = "none";
+                    document.querySelector('.login-btn').innerHTML = "Redirecting...";
+                    window.location.href = atob(encodedUrl); 
+                } else {
+                    errorMsg.style.display = "block";
+                    document.getElementById("gateway-pin").value = "";
+                }
+            } catch (err) {
+                console.error("Cryptography error. Are you running this on HTTPS?", err);
+                errorMsg.innerText = "System Error. Must run on HTTPS.";
                 errorMsg.style.display = "block";
-                document.getElementById("gateway-pin").value = "";
             }
         }
 
-        // Allow pressing "Enter" on keyboard to submit
         document.getElementById("gateway-pin").addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
