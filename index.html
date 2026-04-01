@@ -46,10 +46,19 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            gap: 15px; /* Adds perfect spacing between the logo and the text */
         }
         .logo img {
-            height: 60px; /* Adjust this number to make your logo bigger or smaller */
+            height: 55px; /* Slightly adjusted for better balance */
             width: auto;
+            mix-blend-mode: multiply; /* MAGIC TRICK: This makes the white background invisible! */
+        }
+        .company-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .nav-links {
@@ -278,7 +287,8 @@
 
     <nav>
         <a href="#home" class="logo">
-           <img src="logo.png" alt="Sai Durga Logo">
+            <img src="logo.png" alt="Sai Durga Logo">
+            <span class="company-name">Sai Durga</span>
         </a>
         <div class="nav-links">
             <a href="#home">Home</a>
