@@ -1,171 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERP Gateway - Sai Durga</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        :root {
-            --primary-color: #0056b3;
-            --primary-gradient: linear-gradient(135deg, #0056b3 0%, #0099ff 100%);
-            --text-color: #333;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f4f4f4;
-        }
-        .login-box {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .logo {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-        .pin-input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 20px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 4px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        .pin-input:focus {
-            border-color: var(--primary-color);
-        }
-        .login-btn {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            padding: 16px;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 86, 179, 0.3);
-        }
-        #error-msg {
-            color: #d32f2f;
-            margin-top: 15px;
-            font-size: 14px;
-            font-weight: bold;
-            display: none;
-        }
-        .back-btn {
-    display: inline-flex;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERP Gateway - Sai Durga</title>
+<link rel="icon" type="image/png" href="logo.png">
+
+<style>
+:root {
+    --primary-color: #0056b3;
+    --primary-gradient: linear-gradient(135deg, #0056b3 0%, #0099ff 100%);
+}
+
+/* Clean Light Background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    background: #004080;
-    color: #fff;
-    padding: 10px 18px;
+    background: #f5f7fa; /* light professional */
+}
+
+/* Card */
+.login-box {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* Input */
+.pin-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1.5px solid #ddd;
     border-radius: 6px;
-    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.pin-input:focus {
+    border-color: var(--primary-color);
+}
+
+/* Button */
+.login-btn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 15px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,86,179,0.25);
+}
+
+/* Error */
+#error-msg {
+    color: #d32f2f;
+    margin-top: 12px;
+    font-size: 13px;
+    display: none;
+}
+
+/* Back Button */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #ffffff;
+    color: #004080;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    transition: 0.3s;
 }
 
 .back-btn:hover {
-    background: #ff9900;
-    transform: translateY(-2px);
+    background: #004080;
+    color: white;
 }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <div class="login-box">
-        <div class="logo">Sai Durga</div>
-        <div class="subtitle">Enter Gateway Passcode</div>
-        
-        <input type="password" id="gateway-pin" class="pin-input" placeholder="••••" maxlength="6" autocomplete="off">
-        
-        <button onclick="checkGateway()" class="login-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-            </svg>
-            Unlock Portal
-        </button>
+<a href="index.html" class="back-btn">← Home</a>
 
-        <div id="error-msg">Incorrect Passcode</div>
-        <a href="index.html" class="back-btn">
-    <i class="fa-solid fa-arrow-left"></i> Back to Home
-</a>
-    </div>
+<div class="login-box">
+    <div class="logo">Sai Durga</div>
+    <div class="subtitle">Secure ERP Gateway</div>
 
-   <script>
-        const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4S0VUeUpWSFY1M3N1c3MxZzVobWpXOTFPWU5CVUdnSlJ6LW9iU0xPSm8yZ2tsVUEwS0VmMlktN2o0d0dZYk5zVTU5dy9leGVj";
-        
-        // We will update this with your REAL hash in Step 2!
-        const SECURE_HASH = "8f8472a2f6ec348bfc7577a035c7f34a04c62f0c757b54687e1175236dcf393b";
+    <input type="password" id="gateway-pin" class="pin-input" placeholder="••••" maxlength="6" autocomplete="off">
 
-        async function checkGateway() {
-            // .trim() ensures accidental spaces don't break the PIN
-            const pinEntered = document.getElementById("gateway-pin").value.trim(); 
-            const errorMsg = document.getElementById("error-msg");
+    <button onclick="checkGateway()" class="login-btn">
+        🔐 Unlock Portal
+    </button>
 
-            try {
-                const encoder = new TextEncoder();
-                const data = encoder.encode(pinEntered);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const enteredHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    <div id="error-msg">Incorrect Passcode</div>
+</div>
 
-                // 🚀 THIS IS THE MAGIC LINE: It prints the real hash to your console!
-                console.log("The true hash for your PIN is: " + enteredHash);
+<script>
+const encodedUrl = "aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4S0VUeUpWSFY1M3N1c3MxZzVobWpXOTFPWU5CVUdnSlJ6LW9iU0xPSm8yZ2tsVUEwS0VmMlktN2o0d0dZYk5zVTU5dy9leGVj";
 
-                if (enteredHash === SECURE_HASH) {
-                    errorMsg.style.display = "none";
-                    document.querySelector('.login-btn').innerHTML = "Redirecting...";
-                    window.location.href = atob(encodedUrl); 
-                } else {
-                    errorMsg.style.display = "block";
-                    document.getElementById("gateway-pin").value = "";
-                }
-            } catch (err) {
-                console.error("Cryptography error. Are you running this on HTTPS?", err);
-                errorMsg.innerText = "System Error. Must run on HTTPS.";
-                errorMsg.style.display = "block";
-            }
+const SECURE_HASH = "8f8472a2f6ec348bfc7577a035c7f34a04c62f0c757b54687e1175236dcf393b";
+
+async function checkGateway() {
+    const pinEntered = document.getElementById("gateway-pin").value.trim();
+    const errorMsg = document.getElementById("error-msg");
+
+    try {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(pinEntered);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const enteredHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+        if (enteredHash === SECURE_HASH) {
+            errorMsg.style.display = "none";
+            document.querySelector('.login-btn').innerText = "Redirecting...";
+            window.location.href = atob(encodedUrl);
+        } else {
+            errorMsg.style.display = "block";
+            document.getElementById("gateway-pin").value = "";
         }
+    } catch (err) {
+        errorMsg.innerText = "Run on HTTPS!";
+        errorMsg.style.display = "block";
+    }
+}
 
-        document.getElementById("gateway-pin").addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                checkGateway();
-            }
-        });
-    </script>
+document.getElementById("gateway-pin").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        checkGateway();
+    }
+});
+</script>
+
 </body>
 </html>
