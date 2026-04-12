@@ -8,11 +8,13 @@
     <link rel="icon" type="image/x-icon" href="logo.png">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <style>
         :root {
-            --primary-color: #004080; /* Deep Engineering Blue */
+            --primary-color: #004080;
             --secondary-color: #f8f9fa;
-            --accent-color: #ff9900; /* Energy/Power Orange */
+            --accent-color: #ff9900;
             --text-color: #333;
             --text-light: #666;
             --transition: all 0.3s ease;
@@ -25,7 +27,6 @@
             line-height: 1.6;
             scroll-behavior: smooth;
         }
-        /* --- NAVIGATION --- */
         nav {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -40,17 +41,8 @@
             box-sizing: border-box;
             height: 80px;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 15px;
-        }
-        .logo img {
-            height: 55px;
-            width: auto;
-            mix-blend-mode: multiply;
-        }
+        .logo { display: flex; align-items: center; text-decoration: none; gap: 15px; }
+        .logo img { height: 55px; width: auto; mix-blend-mode: multiply; }
         .company-name {
             font-size: 26px;
             font-weight: 800;
@@ -58,11 +50,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-       
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
+        .nav-links { display: flex; align-items: center; }
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
@@ -70,10 +58,7 @@
             font-weight: 600;
             transition: var(--transition);
         }
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-       
+        .nav-links a:hover { color: var(--accent-color); }
         .login-btn {
             background: var(--primary-color);
             color: white !important;
@@ -81,24 +66,15 @@
             border-radius: 4px;
             margin-left: 15px;
             transition: var(--transition);
-            display: inline-block;
         }
         .login-btn:hover {
             background: var(--accent-color);
             transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-        /* --- GLOBAL SECTION STYLING --- */
-        section {
-            padding: 90px 20px;
-        }
-        .section-content {
-            max-width: 1200px;
-            margin: auto;
-        }
-        .bg-light {
-            background: var(--secondary-color);
-        }
+
+        section { padding: 90px 20px; }
+        .section-content { max-width: 1200px; margin: auto; }
+        .bg-light { background: var(--secondary-color); }
         h2 {
             font-size: 2.5em;
             color: var(--primary-color);
@@ -114,27 +90,16 @@
             display: block;
             margin: 15px auto 0;
         }
-        /* --- HERO SECTION --- */
+
         .hero {
             background: linear-gradient(rgba(0, 32, 96, 0.8), rgba(0, 32, 96, 0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646f70c22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
             color: white;
             text-align: center;
             padding: 200px 20px 150px;
         }
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
+        .hero h1 { font-size: 3.5em; margin-bottom: 20px; line-height: 1.2; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .hero p { font-size: 1.3em; max-width: 800px; margin: 0 auto 40px; opacity: 0.9; }
+
         .btn {
             display: inline-block;
             padding: 15px 35px;
@@ -145,14 +110,8 @@
             transition: var(--transition);
             margin: 10px;
         }
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #e68a00;
-            transform: translateY(-3px);
-        }
+        .btn-primary { background: var(--accent-color); color: white; }
+        .btn-primary:hover { background: #e68a00; transform: translateY(-3px); }
         .btn-outline {
             background: transparent;
             color: white;
@@ -163,7 +122,7 @@
             color: var(--primary-color);
             transform: translateY(-3px);
         }
-        /* --- GRIDS & CARDS --- */
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -175,24 +134,9 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
-            border-top: 4px solid transparent;
         }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-top: 4px solid var(--accent-color);
-        }
-        .card i {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        .card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.3em;
-        }
-        /* Lists */
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+
         .check-list {
             list-style: none;
             padding: 0;
@@ -210,7 +154,13 @@
             top: 4px;
             color: var(--accent-color);
         }
-        /* --- FOOTER --- */
+
+        #reach-map {
+            height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
         footer {
             background:#004080;
             color: #ddd;
@@ -227,50 +177,15 @@
             padding-bottom: 30px;
             margin-bottom: 20px;
         }
-        footer h3 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        footer a {
-            color: #ddd;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-        footer a:hover {
-            color: var(--accent-color);
-        }
-        .footer-bottom {
-            text-align: center;
-            color: #ccc;
-        }
-        /* --- MOBILE RESPONSIVENESS --- */
+        footer a { color: #ddd; text-decoration: none; display: block; margin-bottom: 10px; }
+        footer a:hover { color: var(--accent-color); }
+        .footer-bottom { text-align: center; color: #ccc; }
+
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 15px;
-                height: auto;
-            }
-            .logo img {
-                height: 50px;
-            }
-            .nav-links {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero {
-                padding: 160px 20px 100px;
-            }
-            .hero h1 {
-                font-size: 2.2em;
-            }
-            h2 {
-                font-size: 2em;
-            }
-            .login-btn {
-                margin-top: 10px;
-            }
+            nav { flex-direction: column; padding: 15px; height: auto; }
+            .hero h1 { font-size: 2.2em; }
+            h2 { font-size: 2em; }
+            #reach-map { height: 350px; }
         }
     </style>
 </head>
@@ -366,38 +281,14 @@
         <div class="section-content">
             <h2>Our Engineering Services</h2>
             <ul class="grid check-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Transformer Services:</strong> Oil filtration, internal inspection, preventive maintenance, painting works, and IDT LV bushing replacement.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Testing & Commissioning:</strong> Relay testing, circuit breaker testing, HT panel testing, and complete electrical system maintenance.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Transmission Line Services:</strong> AMC support, line breakdown maintenance, line shifting, and rectification works.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Solar Plant Operation & Maintenance (O&M):</strong> Module cleaning, grass cutting, regular plant maintenance, DG maintenance, air conditioner maintenance, and manpower support services.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Tracker & Mechanical Works:</strong> Tracker system greasing and mechanical structure maintenance.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Civil & Structural Works:</strong> Construction of open storage yards, hazardous storage yards, internal road works, inverter canopies, HT panel sheds, fencing works, and watch towers.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Industrial Electrical Works:</strong> Lightning protection systems, industrial wiring, complete electrical installations, AC & DC works, module installation, cable laying, and conduit routing.
-                </li>
-                <li>
-                    <i class="fa-solid fa-check-circle"></i>
-                    <strong>Equipment Rental Services:</strong> Diesel generators, Hydra cranes, Farana F15, Farana F20, JCB, Tractor, and Water Tanker.
-                </li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Transformer Services:</strong> Oil filtration, internal inspection, preventive maintenance, painting works, and IDT LV bushing replacement.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Testing & Commissioning:</strong> Relay testing, circuit breaker testing, HT panel testing, and complete electrical system maintenance.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Transmission Line Services:</strong> AMC support, line breakdown maintenance, line shifting, and rectification works.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Solar Plant Operation & Maintenance (O&M):</strong> Module cleaning, grass cutting, regular plant maintenance, DG maintenance, air conditioner maintenance, and manpower support services.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Tracker & Mechanical Works:</strong> Tracker system greasing and mechanical structure maintenance.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Civil & Structural Works:</strong> Construction of open storage yards, hazardous storage yards, internal road works, inverter canopies, HT panel sheds, fencing works, and watch towers.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Industrial Electrical Works:</strong> Lightning protection systems, industrial wiring, complete electrical installations, AC & DC works, module installation, cable laying, and conduit routing.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Equipment Rental Services:</strong> Diesel generators, Hydra cranes, Farana F15, Farana F20, JCB, Tractor, and Water Tanker.</li>
             </ul>
         </div>
     </section>
@@ -406,17 +297,35 @@
         <div class="section-content">
             <h2>Industries We Serve</h2>
             <div class="grid" style="text-align: center;">
-                <div class="card">
-                    <i class="fa-solid fa-tower-observation"></i>
-                    <h3>Power Generation</h3>
+                <div class="card"><i class="fa-solid fa-tower-observation"></i><h3>Power Generation</h3></div>
+                <div class="card"><i class="fa-solid fa-sun"></i><h3>Renewable Energy</h3></div>
+                <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>Electrical Utilities</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== UPDATED REGIONAL REACH SECTION ==================== -->
+    <section id="presence" class="bg-light">
+        <div class="section-content">
+            <h2>Our Regional Reach</h2>
+           
+            <div class="grid" style="align-items: start; gap: 40px;">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-top: 0;">Serving South India</h3>
+                    <p>From our <strong>Headquarters in Andhra Pradesh (Chirala)</strong>, Sai Durga provides comprehensive engineering, testing, and maintenance services across Three major states with dedicated teams.</p>
+                    <ul class="check-list">
+                        <li><i class="fa-solid fa-circle-dot"></i> <strong>Telangana:</strong>Full-state support for Solar & Industrial projects.</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> <strong>Andhra Pradesh:</strong> Full-state support for Solar & Industrial projects. (HQ - Chirala).</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> <strong>Karnataka:</strong> Full-state support for Solar & Industrial projects.</li>
+                        <li><i class="fa-solid fa-circle-dot"></i> <strong>Tamil Nadu:</strong> Madurai zone & expanding our network for other zones in the state. Soon we will go live.</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <i class="fa-solid fa-sun"></i>
-                    <h3>Renewable Energy</h3>
-                </div>
-                <div class="card">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Electrical Utilities</h3>
+
+                <div>
+                    <div id="reach-map"></div>
+                    <p style="text-align: center; margin-top: 15px; color: var(--text-light); font-size: 0.95em;">
+                        <strong>📍 We actively cover these states</strong> • Headquarters marked in Chirala, Andhra Pradesh
+                    </p>
                 </div>
             </div>
         </div>
@@ -479,6 +388,7 @@
                 <a href="#about">About Us</a>
                 <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
+                <a href="#presence">Our Reach</a>
             </div>
             <div>
                 <h3>Contact Us</h3>
@@ -491,5 +401,41 @@
             <p>&copy; 2026 Sai Durga. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('reach-map').setView([14.5, 78.5], 5.8);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Coverage circles for 5 states
+        var states = [
+            {name: "Telangana", lat: 17.8, lng: 79.5},
+            {name: "Andhra Pradesh", lat: 15.9, lng: 79.8},
+            {name: "Karnataka", lat: 14.5, lng: 76.0},
+            {name: "Tamil Nadu", lat: 11.0, lng: 78.5}
+        ];
+
+        states.forEach(function(state) {
+            L.circle([state.lat, state.lng], {
+                color: "#ff9900",
+                fillColor: "#ff9900",
+                fillOpacity: 0.15,
+                radius: 180000
+            }).addTo(map).bindPopup("<b>" + state.name + "</b><br>Covered by Sai Durga");
+        });
+
+        // Headquarters - Chirala, Andhra Pradesh
+        L.marker([15.8246, 80.3521]).addTo(map)
+            .bindPopup("<b>Headquarters</b><br>Chirala, Andhra Pradesh<br>Sai Durga Engineering Services")
+            .openPopup();
+
+        // Madurai Zone - Tamil Nadu
+        L.marker([9.9252, 78.1198]).addTo(map)
+            .bindPopup("<b>Madurai Zone</b><br>Tamil Nadu<br>Currently operational & expanding");
+    </script>
 </body>
 </html>
