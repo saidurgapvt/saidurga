@@ -274,12 +274,13 @@
                 margin-top: 10px;
             }
         }
-        /* === MAP FIX (Only this is added) === */
+        /* === MAP FIX === */
         #reach-map {
             height: 450px;
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1; /* Add this so the map stays behind your top menu */
         }
     </style>
 </head>
@@ -499,37 +500,49 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        var map = L.map('reach-map').setView([14.5, 78.5], 5.8);
+        // 1. Wait for the CSS Grid to fully build before drawing the map
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 2. Changed zoom to a whole number (6) to prevent tile loading errors
+            var map = L.map('reach-map').setView([14.5, 78.5], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
 
-        // Coverage circles for 5 states
-        var states = [
-            {name: "Telangana", lat: 17.8, lng: 79.5},
-            {name: "Andhra Pradesh", lat: 15.9, lng: 79.8},
-            {name: "Karnataka", lat: 14.5, lng: 76.0},
-            {name: "Tamil Nadu", lat: 11.0, lng: 78.5}
-        ];
+            // Coverage circles for your states
+            var states = [
+                {name: "Telangana", lat: 17.8, lng: 79.5},
+                {name: "Andhra Pradesh", lat: 15.9, lng: 79.8},
+                {name: "Karnataka", lat: 14.5, lng: 76.0},
+                {name: "Tamil Nadu", lat: 11.0, lng: 78.5}
+            ];
 
-        states.forEach(function(state) {
-            L.circle([state.lat, state.lng], {
-                color: "#ff9900",
-                fillColor: "#ff9900",
-                fillOpacity: 0.15,
-                radius: 180000
-            }).addTo(map).bindPopup("<b>" + state.name + "</b><br>Covered by Sai Durga");
+            states.forEach(function(state) {
+                L.circle([state.lat, state.lng], {
+                    color: "#ff9900",
+                    fillColor: "#ff9900",
+                    fillOpacity: 0.15,
+                    radius: 180000
+                }).addTo(map).bindPopup("<b>" + state.name + "</b><br>Covered by Sai Durga");
+            });
+
+            // Headquarters - Chirala, Andhra Pradesh
+            L.marker([15.8246, 80.3521]).addTo(map)
+                .bindPopup("<b>Headquarters</b><br>Chirala, Andhra Pradesh<br>Sai Durga Engineering Services")
+                .openPopup();
+
+            // Madurai Zone - Tamil Nadu
+            L.marker([9.9252, 78.1198]).addTo(map)
+                .bindPopup("<b>Madurai Zone</b><br>Tamil Nadu<br>Currently operational & expanding");
+
+            // 3. MAGIC TRICK: Force the map to recalculate its size after 100 milliseconds. 
+            // This completely fixes the "Grey Box" bug caused by CSS Grids.
+            setTimeout(function() {
+                map.invalidateSize();
+            }, 100);
+            
         });
-
-        // Headquarters - Chirala, Andhra Pradesh
-        L.marker([15.8246, 80.3521]).addTo(map)
-            .bindPopup("<b>Headquarters</b><br>Chirala, Andhra Pradesh<br>Sai Durga Engineering Services")
-            .openPopup();
-
-        // Madurai Zone - Tamil Nadu
-        L.marker([9.9252, 78.1198]).addTo(map)
-            .bindPopup("<b>Madurai Zone</b><br>Tamil Nadu<br>Currently operational & expanding");
     </script>
 </body>
 </html>
