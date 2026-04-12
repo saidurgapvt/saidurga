@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sai Durga is a trusted engineering service provider delivering reliable operation, maintenance, troubleshooting, and project execution services.">
+    <meta name="description" content="Sai Durga offers reliable transformer services, solar plant O&M, testing & commissioning, transmission line maintenance, and equipment rental for power plants and renewable energy projects across India.">
     <title>Sai Durga - Engineering & Power Solutions</title>
     <link rel="icon" type="image/x-icon" href="logo.png">
-    
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
             --primary-color: #004080; /* Deep Engineering Blue */
@@ -18,7 +17,6 @@
             --text-light: #666;
             --transition: all 0.3s ease;
         }
-
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -27,7 +25,6 @@
             line-height: 1.6;
             scroll-behavior: smooth;
         }
-
         /* --- NAVIGATION --- */
         nav {
             background: white;
@@ -39,7 +36,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 50px; /* Slightly reduced padding to fit logo */
+            padding: 10px 50px;
             box-sizing: border-box;
             height: 80px;
         }
@@ -47,12 +44,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            gap: 15px; /* Adds perfect spacing between the logo and the text */
+            gap: 15px;
         }
         .logo img {
-            height: 55px; /* Slightly adjusted for better balance */
+            height: 55px;
             width: auto;
-            mix-blend-mode: multiply; /* MAGIC TRICK: This makes the white background invisible! */
+            mix-blend-mode: multiply;
         }
         .company-name {
             font-size: 26px;
@@ -61,7 +58,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+       
         .nav-links {
             display: flex;
             align-items: center;
@@ -76,9 +73,7 @@
         .nav-links a:hover {
             color: var(--accent-color);
         }
-        
-        /* Fixed Login Button CSS */
-        /* Fixed Login Button CSS */
+       
         .login-btn {
             background: var(--primary-color);
             color: white !important;
@@ -90,10 +85,9 @@
         }
         .login-btn:hover {
             background: var(--accent-color);
-            transform: translateY(-3px); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-
         /* --- GLOBAL SECTION STYLING --- */
         section {
             padding: 90px 20px;
@@ -120,7 +114,6 @@
             display: block;
             margin: 15px auto 0;
         }
-
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(rgba(0, 32, 96, 0.8), rgba(0, 32, 96, 0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646f70c22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
@@ -170,7 +163,6 @@
             color: var(--primary-color);
             transform: translateY(-3px);
         }
-
         /* --- GRIDS & CARDS --- */
         .grid {
             display: grid;
@@ -200,7 +192,6 @@
             margin-top: 0;
             font-size: 1.3em;
         }
-
         /* Lists */
         .check-list {
             list-style: none;
@@ -219,8 +210,7 @@
             top: 4px;
             color: var(--accent-color);
         }
-
-        /* --- FOOTER (Smaller & Compact) --- */
+        /* --- FOOTER --- */
         footer {
             background:#004080;
             color: #ddd;
@@ -254,7 +244,6 @@
             text-align: center;
             color: #ccc;
         }
-
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
             nav {
@@ -263,7 +252,7 @@
                 height: auto;
             }
             .logo img {
-                height: 50px; /* Slightly smaller logo on mobile */
+                height: 50px;
             }
             .nav-links {
                 margin-top: 15px;
@@ -286,7 +275,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <a href="#home" class="logo">
             <img src="logo.png" alt="Sai Durga Logo">
@@ -297,12 +285,12 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#projects">Projects</a>
-            <a href="login.html">ERP Login</a>
+            <a href="login.html" class="login-btn">ERP Login</a>
         </div>
     </nav>
 
     <section id="home" class="hero">
-        <h1>Powering Industry with Reliable Electrical & Renewable Energy Engineering Solutions</h1>
+        <h1>Expert Engineering Services for Power Plants, Solar Energy & Industrial Electrical Systems</h1>
         <p>Supporting Power Plants, Solar Projects & Industrial Electrical Systems with Professional Testing, Maintenance and Troubleshooting.</p>
         <div class="hero-buttons">
             <a href="#services" class="btn btn-primary">Our Services</a>
@@ -378,12 +366,38 @@
         <div class="section-content">
             <h2>Our Engineering Services</h2>
             <ul class="grid check-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
-                <li><i class="fa-solid fa-check-circle"></i> IDT LV bushing replacement and transformer maintenance </li>
-                <li><i class="fa-solid fa-check-circle"></i> Solar plant diagnosis, AC & DC works and performance analysis</li>
-                <li><i class="fa-solid fa-check-circle"></i> Execution of electrical distribution systems up to 33kV</li>
-                <li><i class="fa-solid fa-check-circle"></i> Relay testing, switchgear testing and electrical fault analysis</li>
-                <li><i class="fa-solid fa-check-circle"></i> Industrial electrical works, lightning protection and wiring systems</li>
-                <li><i class="fa-solid fa-check-circle"></i> Diesel generator maintenance and auxiliary system servicing</li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Transformer Services:</strong> Oil filtration, internal inspection, preventive maintenance, painting works, and IDT LV bushing replacement.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Testing & Commissioning:</strong> Relay testing, circuit breaker testing, HT panel testing, and complete electrical system maintenance.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Transmission Line Services:</strong> AMC support, line breakdown maintenance, line shifting, and rectification works.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Solar Plant Operation & Maintenance (O&M):</strong> Module cleaning, grass cutting, regular plant maintenance, DG maintenance, air conditioner maintenance, and manpower support services.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Tracker & Mechanical Works:</strong> Tracker system greasing and mechanical structure maintenance.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Civil & Structural Works:</strong> Construction of open storage yards, hazardous storage yards, internal road works, inverter canopies, HT panel sheds, fencing works, and watch towers.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Industrial Electrical Works:</strong> Lightning protection systems, industrial wiring, complete electrical installations, AC & DC works, module installation, cable laying, and conduit routing.
+                </li>
+                <li>
+                    <i class="fa-solid fa-check-circle"></i>
+                    <strong>Equipment Rental Services:</strong> Diesel generators, Hydra cranes, Farana F15, Farana F20, JCB, Tractor, and Water Tanker.
+                </li>
             </ul>
         </div>
     </section>
@@ -398,9 +412,9 @@
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-sun"></i>
-                    <h3>Renewable Energy </h3>
+                    <h3>Renewable Energy</h3>
                 </div>
-                 <div class="card">
+                <div class="card">
                     <i class="fa-solid fa-lightbulb"></i>
                     <h3>Electrical Utilities</h3>
                 </div>
@@ -415,20 +429,20 @@
                 <div class="card">
                     <h3><i class="fa-solid fa-gears" style="font-size:24px; margin-right:10px;"></i> Core Project Experience</h3>
                     <ul style="padding-left: 20px;">
-                        <li>Transformer & HT Panles testing at multiple loactions.</li>
-                        <li>OLTC overhauling & Oil filtration works at multiple loactions.</li>
+                        <li>Transformer & HT Panel testing at multiple locations.</li>
+                        <li>OLTC overhauling & Oil filtration works at multiple locations.</li>
                         <li>Relay testing and electrical maintenance at industrial facilities.</li>
-                        <li>Transmission line AMC,BD Support and line rectification.</li>
-                        <li>Preventive maintenance for solar power plant equipments</li>
-                        <li>Support for Operations & Maintenance Activities, such as module cleaning, table tilting, grass cutting, and providing service machines across Karnataka, Telangana, and Tamil Nadu..</li>
+                        <li>Transmission line AMC, breakdown support and line rectification.</li>
+                        <li>Preventive maintenance for solar power plant equipment.</li>
+                        <li>Support for Operations & Maintenance Activities, such as module cleaning, table tilting, grass cutting, and providing service machines across Karnataka, Telangana, and Tamil Nadu.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3><i class="fa-solid fa-file-signature" style="font-size:24px; margin-right:10px;"></i> Notable Executions</h3>
                     <ul style="padding-left: 20px;">
-                        <li><strong>2x300 MW Butibori Thermal Power Plant:</strong> 370 MVA Power transformer Oil filtration at 2x300 MW Thermal Power Plant, Nagpur.</li>
-                        <li><strong>Ilios Power Private Testing:</strong> 33kV Switchgear, Circuit Breaker, and Relay testing.</li>
-                        <li><strong>Adani Green Energy:</strong> Plant support activates like Module cleaning, grass cutting, table tiling Supply of unskilled manpower and machinery.</li>
+                        <li><strong>2x300 MW Butibori Thermal Power Plant:</strong> 370 MVA Power transformer oil filtration at 2x300 MW Thermal Power Plant, Nagpur.</li>
+                        <li><strong>Ilios Power Private Limited:</strong> 33kV Switchgear, Circuit Breaker, and Relay testing.</li>
+                        <li><strong>Adani Green Energy:</strong> Plant support activities like module cleaning, grass cutting, table tilting, supply of unskilled manpower and machinery.</li>
                     </ul>
                 </div>
             </div>
@@ -443,8 +457,8 @@
                 <div class="card" style="padding: 20px;"><strong>TATA Power</strong></div>
                 <div class="card" style="padding: 20px;"><strong>Mundra Solar</strong></div>
                 <div class="card" style="padding: 20px;"><strong>JSW Energies</strong></div>
-                <div class="card" style="padding: 20px;"><strong>CleanMax </strong></div>
-                <div class="card" style="padding: 20px;"><strong>Mytrah </strong></div>
+                <div class="card" style="padding: 20px;"><strong>CleanMax</strong></div>
+                <div class="card" style="padding: 20px;"><strong>Mytrah</strong></div>
                 <div class="card" style="padding: 20px;"><strong>Ilios Power</strong></div>
                 <div class="card" style="padding: 20px;"><strong>First Energy</strong></div>
                 <div class="card" style="padding: 20px;"><strong>Serentica Renewables</strong></div>
@@ -474,9 +488,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Sai Durga . All Rights Reserved.</p>
+            <p>&copy; 2026 Sai Durga. All Rights Reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
