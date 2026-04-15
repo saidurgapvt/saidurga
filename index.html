@@ -118,11 +118,48 @@
         }
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(0, 32, 96, 0.8), rgba(0, 32, 96, 0.8)), url('https://images.unsplash.com/photo-1513828583688-c52646f70c22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
-            color: white;
+            position: relative;
             text-align: center;
             padding: 200px 20px 150px;
+            color: white;
+            overflow: hidden;
         }
+        
+        /* Background Image Slider Setup */
+        .hero-slider {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+        }
+        
+        .hero-slider .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* Smooth fade effect */
+        }
+        
+        .hero-slider .slide.active {
+            opacity: 1;
+        }
+        
+        /* The Blue Tint Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 32, 96, 0.75); /* Deep Engineering Blue Tint */
+            z-index: -1;
+        }
+        
+        /* Keeps text above the images */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Your existing Text & Button styles (Kept exactly the same!) */
         .hero h1 {
             font-size: 3.5em;
             margin-bottom: 20px;
@@ -301,11 +338,21 @@
     </nav>
 
     <section id="home" class="hero">
-        <h1>Expert Engineering Services for Power Plants, Solar Energy & Industrial Electrical Systems</h1>
-        <p>Supporting Power Plants, Solar Projects & Industrial Electrical Systems with Professional Testing, Maintenance and Troubleshooting.</p>
-        <div class="hero-buttons">
-            <a href="#services" class="btn btn-primary">Our Services</a>
-            <a href="#footer" class="btn btn-outline">Contact Us</a>
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1>Expert Engineering Services for Power Plants, Solar Energy & Industrial Electrical Systems</h1>
+            <p>Supporting Power Plants, Solar Projects & Industrial Electrical Systems with Professional Testing, Maintenance and Troubleshooting.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#footer" class="btn btn-outline">Contact Us</a>
+            </div>
         </div>
     </section>
 
@@ -501,6 +548,17 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let slides = document.querySelectorAll(".hero-slider .slide");
+            let currentSlide = 0;
+            
+            // Change image every 5 seconds (5000 milliseconds)
+            setInterval(function() {
+                slides[currentSlide].classList.remove("active");
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add("active");
+            }, 5000); 
+        });
         // 1. Wait for the CSS Grid to fully build before drawing the map
         document.addEventListener('DOMContentLoaded', function() {
             
